@@ -1,0 +1,11 @@
+<h1> Update your profile</h1>
+
+<%= form_for @item,:url=>{:action => 'update', :id => @item} do |form| %>
+
+  <div>Name:<%= form.text_field :name %></div>
+  <div>Price:<%= form.text_field :price %></div>
+  <div>Description:<%= form.text_area :description %></div>
+  <div>Url:<%= form.text_field :img_url %></div>
+  <%= form.submit 'update' %>
+<% end %>
+<%= link_to "back", items_index_path %>

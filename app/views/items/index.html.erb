@@ -1,20 +1,24 @@
-<h1>Don miss these good servants!</h1>
+<h1 class="text-success">Don miss these good servants!</h1>
 
 <% @items.each do |item| %>
     <% if item.img_url.include?(".jpg")%>
-      <div class="left">
-        <%= image_tag item.img_url, :size =>'114x196' %></div>
-        <div>Name:<%= item.name %></div>
-        <div>Price:<%= item.price %></div>
-        <div>What did (s)he do:<%= item.description %></div>
+      <img><%= image_tag item.img_url, :size =>'114x196' %></img>
+      <div>Name:<%= item.name %></div>
+      <div>Price:<%= item.price %></div>
+      <div>What did (s)he do:<%= item.description %></div>
+      <div><%= link_to("edit", :action => 'edit', :id =>item.id) %></div>
+      <div><%= link_to 'Destroy',item, method: :delete,data: { confirm: 'do u really wanna delete this one?'}%>
       <div class="clear"></div>
     <% else %>
-    <div class="left">
-        <%= image_tag 'none.png', :size =>'120x120' %></div>
-        <div>Name:<%= item.name %></div>
-        <div>Price:<%= item.price %></div>
-        <div>What did (s)he do:<%= item.description %></div>
+      <img><%= image_tag 'none.png', :size =>'120x120' %></img>
+      <div>Name:<%= item.name %></div>
+      <div>Price:<%= item.price %></div>
+      <div>What did (s)he do:<%= item.description %></div>
+      <div><%= link_to("edit", :action => 'edit', :id =>item.id) %></div>
+      <div><%= link_to 'Destroy',item, method: :delete,data: { confirm: 'do u really wanna delete this one?'}%>
       <div class="clear"></div>
     <% end %>
 <% end %>
 check
+
+tem, method: :delete, data: { confirm: 'Are you sure?' } %>
