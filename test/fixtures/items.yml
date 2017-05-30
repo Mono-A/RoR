@@ -1,11 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+fixt1:
+  name: fixture1
+  description: This is the first fixture
+  img_url: something.jpg
+  price: 9.99
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+fixt2:
+  name: fixture2
+  description: This is the second fixture
+  img_url: anything.jpg
+  price: 1.01
+
+fixt3:
+  name: fixture3
+  description: This is the third fixture
+  img_url: other.jpg
+  price: 0.00

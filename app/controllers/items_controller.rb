@@ -8,8 +8,11 @@ class ItemsController < ApplicationController
   end
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to :action => "new"
+    if @item.save
+      redirect_to :action => "index"
+    else
+      render :action => "new"
+    end
   end
   def item_params
     params.require(:item).permit(:name, :price, :description, :img_url)
@@ -21,7 +24,7 @@ class ItemsController < ApplicationController
     @item =Item.find(params[:id])
     @item.update_attributes(params.require(:item).permit(:name, :price, :description, :img_url))
     if @item.save
-      redirect_to :action => "new"
+      redirect_to :action => "index"
     else
       render :action => "edit"
     end

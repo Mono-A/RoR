@@ -1,24 +1,86 @@
-<h1 class="text-success">Don miss these good servants!</h1>
+<!DOCTYPE html>
+<head>
+    <title>test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<% @items.each do |item| %>
-    <% if item.img_url.include?(".jpg")%>
-      <img><%= image_tag item.img_url, :size =>'114x196' %></img>
-      <div>Name:<%= item.name %></div>
-      <div>Price:<%= item.price %></div>
-      <div>What did (s)he do:<%= item.description %></div>
-      <div><%= link_to("edit", :action => 'edit', :id =>item.id) %></div>
-      <div><%= link_to 'Destroy',item, method: :delete,data: { confirm: 'do u really wanna delete this one?'}%>
-      <div class="clear"></div>
-    <% else %>
-      <img><%= image_tag 'none.png', :size =>'120x120' %></img>
-      <div>Name:<%= item.name %></div>
-      <div>Price:<%= item.price %></div>
-      <div>What did (s)he do:<%= item.description %></div>
-      <div><%= link_to("edit", :action => 'edit', :id =>item.id) %></div>
-      <div><%= link_to 'Destroy',item, method: :delete,data: { confirm: 'do u really wanna delete this one?'}%>
-      <div class="clear"></div>
-    <% end %>
-<% end %>
-check
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/general.css" />
 
-tem, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+</head>
+<body>
+
+<!-- ヘッダー部 -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="nav-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">top</a>
+        </div><!-- nav-header -->
+        <div id="navbar" class="navbar-collapse collapse in" area-expanded="true">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">info</a></li>
+                <li><a href="">contact us</a></li>
+                <li><a href="">about us</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="search">
+            </form>
+        </div><!-- navbar -->
+    </div><!-- container-fluid -->
+</nav>
+
+<div class="container-fluid don_hidden">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar don_hidden"><!--sidebar-->
+      <ul class="nav nav-sidebar">
+        <%= render :partial => "./layouts/sidebar" %>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+      <!-- main contents -->
+      <h1 class="text-success">Don miss these good servants!</h1>
+      <div class="row">
+        <% @items.each do |item| %>
+            <% if File.exist?('./app/assets/images/'+item.img_url) %>
+    <!--there are -->
+              <img><%= image_tag item.img_url, :size =>'114x196' %></img>
+              <div>Name:<%= item.name %></div>
+              <div>Price:<%= item.price %></div>
+              <div>What did (s)he do:<%= item.description %></div>
+              <div><%= link_to("edit", :action => 'edit', :id =>item.id) %></div>
+              <div><%= link_to 'Destroy',item, method: :delete,data: { confirm: 'do u really wanna delete this one?'}%></div>
+              <div><%= link_to 'add to cart','/carts/new' %></div>
+              <div class="clear"></div>
+            <% else %>
+    <!-- there arent -->
+              <img><%= image_tag 'none.png', :size =>'120x120' %></img>
+              <div>Name:<%= item.name %></div>
+              <div>Price:<%= item.price %></div>
+              <div>What did (s)he do:<%= item.description %></div>
+              <div><%= link_to("edit", :action => 'edit', :id =>item.id) %></div>
+              <div><%= link_to 'Destroy',item, method: :delete,data: { confirm: 'do u really wanna delete this one?'}%></div>
+              <div class="clear"></div>
+            <%end%><!--if end -->
+        <% end %><!--each do end -->
+      </div>
+      check
+    </div><!--main end-->
+  </div>
+</div><!-- container-fluid -->
+<div class="clear"></div>
+<div class="container-fluid footer">
+    <div class="row">
+      <%= render :partial => "./layouts/footer" %>
+    </div>
+</div>
+
+</body>
+</html>

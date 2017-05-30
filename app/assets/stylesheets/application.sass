@@ -16,9 +16,57 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+sass
 img
   float: left
   margin: 10px
 
 .clear
   clear: both
+
+.flex
+  display: -webkit-flex
+  display: -moz-flex
+  display: -ms-flex
+  display: -o-flex
+  display: flex
+
+.sidebar
+  display: none
+.header
+  display: none
+
+@media screen and (min-hight: 100px)
+  .header
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    overflow-x: hidden
+    overflow-y: auto
+
+@media screen and (min-width: 768px)
+  .sidebar
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    display: block
+    overflow-x: hidden
+    overflow-y: auto
+
+.clearfix::after
+  content: ""
+  display: table
+  clear: both
+
+.don_hidden
+  padding: 60px 0
+
+
+.footer
+  background-color: Black
+  position: fixed
+  width: 100%
+  height: 60px
+  bottom: 0px

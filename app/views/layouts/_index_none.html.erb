@@ -1,0 +1,7 @@
+<img><%= image_tag 'none.png', :size =>'120x120' %></img>
+<div>Name:<%= item.name %></div>
+<div>Price:<%= item.price %></div>
+<div>What did (s)he do:<%= item.description %></div>
+<div><%= link_to("edit", :action => 'edit', :id =>item.id) %></div>
+<div><%= link_to 'Destroy',item, method: :delete,data: { confirm: 'do u really wanna delete this one?'}%></div>
+<div class="clear"></div>
