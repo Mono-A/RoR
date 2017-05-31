@@ -6,12 +6,24 @@ fixt1:
 
 fixt2:
   name: fixture2
-  description: This is the second fixture
+  description: exer4_-1
   img_url: anything.jpg
-  price: 1.01
+  price: -1
 
 fixt3:
   name: fixture3
-  description: This is the third fixture
-  img_url: other.jpg
-  price: 0.00
+  description: exer4_0
+  img_url: otherthing.jpg
+  price: 0
+
+fixt4:
+  name: fixture4
+  description: exer4_1
+  img_url: everything.jpg
+  price: 1
+
+fixt5:
+  name: fixture1
+  description: Dendiface
+  img_url: dendi.jpg
+  price: 322

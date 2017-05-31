@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to :action => "index"

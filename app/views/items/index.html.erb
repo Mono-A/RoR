@@ -57,7 +57,7 @@
               <div>What did (s)he do:<%= item.description %></div>
               <div><%= link_to("edit", :action => 'edit', :id =>item.id) %></div>
               <div><%= link_to 'Destroy',item, method: :delete,data: { confirm: 'do u really wanna delete this one?'}%></div>
-              <div><%= link_to 'add to cart','/carts/new' %></div>
+              <div><%= link_to 'add to cart',{:controller => 'line_items',:action => "new",item_id: item.id} %></div>
               <div class="clear"></div>
             <% else %>
     <!-- there arent -->
